@@ -1,12 +1,13 @@
 # DB設計
 
-## groups_usersテーブル
+## users table
 
 |Column|Type|Option|
 |------|----|------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|intefer|null: false, foreign_key: true|
+|name|string|index: true, null: false, unique: true|
+|mail|string|null: false|
 
 ### Association
-- belong_to :group
-- belong_to :user
+- has_many :groups,through: members
+- has_many :messages
+- has_many :members
